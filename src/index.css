@@ -16,7 +16,7 @@ button { font: inherit; }
 .pink-wash-two { right: -18rem; bottom: -17rem; background: #c72f73; }
 .music-frame { position: absolute; width: 1px; height: 1px; top: -2px; left: -2px; border: 0; opacity: .01; pointer-events: none; }
 
-.carpet-bg { position: absolute; inset: 0; z-index: -3; background-image: url("/images/carpet-bg.jpg"); background-size: cover; background-position: center; opacity: 0; pointer-events: none; transition: opacity 1.6s ease; }
+.carpet-bg { position: fixed; inset: 0; z-index: -3; background-image: url("/images/carpet-bg.jpg"); background-size: auto 100%; background-repeat: no-repeat; background-position: center; background-color: #030304; opacity: 0; pointer-events: none; transition: opacity 1.6s ease; }
 .is-dakiya .carpet-bg { opacity: 1; }
 
 .scene-content { min-height: 100svh; display: grid; place-items: center; position: relative; }
@@ -72,12 +72,12 @@ main[data-end-phase="final"] .reel-scene { opacity: 0; pointer-events: none; }
 .paper-card-wrap { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .55s cubic-bezier(.16, 1, .3, 1), opacity .55s ease; }
 .paper-card { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; box-shadow: 0 20px 44px rgba(0, 0, 0, .6); }
 .paper-text { position: absolute; left: 13%; right: 13%; top: 21%; bottom: 20%; margin: 0; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; color: #4a2c17; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(.95rem, 3.6vw, 1.2rem); line-height: 1.55; letter-spacing: .01em; }
-.paper-nav { position: absolute; z-index: 200; left: 50%; top: calc(100% + 36px); transform: translateX(-50%); display: flex; gap: 14px; }
+.paper-nav { position: fixed; z-index: 240; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 72px); transform: translateX(-50%); display: flex; justify-content: center; gap: 14px; width: max-content; max-width: 94vw; }
 .paper-nav button { padding: 10px 18px; border: 1px solid rgba(255, 241, 246, .35); border-radius: 4px; color: #fff1f6; background: #000; cursor: pointer; font-size: .82rem; letter-spacing: .04em; transition: opacity .25s ease, border-color .25s ease, color .25s ease; }
 .paper-nav button:hover:not(:disabled) { color: #ffd7d7; border-color: #a8192f; }
 .paper-nav button:disabled { opacity: .3; cursor: default; }
 
-.more-button { position: absolute; z-index: 200; left: 50%; top: calc(100% + 92px); min-width: 200px; padding: 11px 22px; border: 1px solid rgba(122, 15, 35, .7); border-radius: 4px; color: #ffc9c9; background: #1a0505; cursor: pointer; opacity: 0; transform: translate(-50%, 14px); pointer-events: none; transition: opacity 1.2s ease, transform 1.2s cubic-bezier(.16, 1, .3, 1), border-color .25s ease, color .25s ease; text-align: center; white-space: nowrap; font-family: 'Lalezar', 'Cormorant Garamond', serif; font-size: 1.35rem; letter-spacing: .03em; }
+.more-button { position: fixed; z-index: 240; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 124px); min-width: 200px; padding: 11px 22px; border: 1px solid rgba(122, 15, 35, .7); border-radius: 4px; color: #ffc9c9; background: #1a0505; cursor: pointer; opacity: 0; transform: translate(-50%, 14px); pointer-events: none; transition: opacity 1.2s ease, transform 1.2s cubic-bezier(.16, 1, .3, 1), border-color .25s ease, color .25s ease; text-align: center; white-space: nowrap; font-family: 'Lalezar', 'Cormorant Garamond', serif; font-size: 1.35rem; letter-spacing: .03em; }
 .more-button[aria-hidden="false"] { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
 .more-button:hover { color: #ffe6e6; border-color: #a8192f; }
 .more-button:focus-visible { outline: 2px solid #a8192f; outline-offset: 4px; }
@@ -133,5 +133,8 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
   .unlock-button { bottom: calc(env(safe-area-inset-bottom, 0px) + 34px); }
   .dare-button { top: calc(100% + 46px); white-space: normal; }
   .dakiya-button { top: calc(100% + 98px); white-space: normal; font-size: 1.15rem; }
-  .more-button { top: calc(100% + 88px); white-space: normal; font-size: 1.15rem; }
+  .paper-nav { bottom: calc(env(safe-area-inset-bottom, 0px) + 68px); gap: 10px; }
+  .paper-nav button { padding: 9px 13px; font-size: .78rem; }
+  .more-button { bottom: calc(env(safe-area-inset-bottom, 0px) + 118px); max-width: 92vw; white-space: normal; font-size: 1.05rem; }
+  .replay-sequence-button { bottom: calc(env(safe-area-inset-bottom, 0px) + 8px); padding: 8px 12px; font-size: .74rem; }
 }
