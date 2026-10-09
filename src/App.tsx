@@ -39,6 +39,7 @@ function App() {
   const revealMessage =
     'Now here I show you, things I did about you, that you never knew...';
   const audioCtxRef = useRef<AudioContext | null>(null);
+  const moreTimeoutRef = useRef<number | null>(null);
   const playerRef = useRef<{
     playVideo: () => void;
     pauseVideo: () => void;
@@ -185,7 +186,31 @@ function App() {
 
   const handleMore = () => {
     setIsScattering(true);
-    window.setTimeout(() => setShowTypewriter(true), 850);
+    if (moreTimeoutRef.current !== null) {
+      window.clearTimeout(moreTimeoutRef.current);
+    }
+    moreTimeoutRef.current = window.setTimeout(() => {
+      moreTimeoutRef.current = null;
+      setShowTypewriter(true);
+    }, 850);
+  };
+
+  // Return to the unlocked envelope so the Dare / pages sequence can be replayed.
+  const handleReplaySequence = () => {
+    if (moreTimeoutRef.current !== null) {
+      window.clearTimeout(moreTimeoutRef.current);
+      moreTimeoutRef.current = null;
+    }
+    setIsDakiya(false);
+    setIsDared(false);
+    setPaperIndex(0);
+    setIsScattering(false);
+    setShowTypewriter(false);
+    setTypedReveal('');
+    setShowReel(false);
+    setReelIndex(0);
+    setEndPhase('idle');
+    setEndTypedDots('');
   };
 
   useEffect(() => {
@@ -288,6 +313,12 @@ function App() {
           </button>
         </div>
 
+        {isDakiya && isDared && !showTypewriter && !showReel && endPhase === 'idle' && (
+          <p className="dare-confirmation" aria-live="polite">
+            Sure? I hope you are currently alone..
+          </p>
+        )}
+
         <div className="paper-stack" aria-hidden={!isDakiya}>
           {Array.from({ length: totalPapers }, (_, i) => {
             const tilt = [-6, -2, 3, 7][i];
@@ -349,6 +380,16 @@ function App() {
             There...is more..
           </button>
         </div>
+
+        <button
+          className="replay-sequence-button"
+          type="button"
+          onClick={handleReplaySequence}
+          aria-hidden={!isDakiya}
+          tabIndex={isDakiya ? 0 : -1}
+        >
+          Back to the envelope ↺
+        </button>
 
         <div className="typewriter-scene" aria-hidden={!showTypewriter}>
           <p className="typewriter-text">
