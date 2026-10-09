@@ -287,20 +287,22 @@ function App() {
           <button
             className="unlock-button"
             type="button"
-            onClick={() => setIsUnlocked(true)}
-            aria-hidden={loadedImages < 2}
-            tabIndex={loadedImages < 2 ? -1 : 0}
+            onClick={() => {
+              if (!isUnlocked) {
+                setIsUnlocked(true);
+                return;
+              }
+              setIsDared(true);
+              setIsDakiya(true);
+            }}
+            aria-hidden={loadedImages < 2 || isDakiya}
+            tabIndex={loadedImages < 2 || isDakiya ? -1 : 0}
           >
-            Unlock what shackles me..?
-          </button>
-          <button
-            className="dare-button"
-            type="button"
-            onClick={() => { setIsDared(true); setIsDakiya(true); }}
-            aria-hidden={!isUnlocked}
-            tabIndex={isUnlocked ? 0 : -1}
-          >
-            {isDared ? 'Sure? I hope you are currently alone..' : 'Dare..?'}
+            {!isUnlocked
+              ? 'Unlock what shackles me..?'
+              : isDared
+                ? 'Sure? I hope you are currently alone..'
+                : 'Dare..?'}
           </button>
           <button
             className="dakiya-button"
