@@ -350,7 +350,7 @@ function App() {
                   src="/images/letter-paper.jpg"
                   alt="A handwritten letter page"
                 />
-                <p className="paper-text">ABCD</p>
+                <p key={paperIndex} className="paper-text">ABCD</p>
               </div>
             );
           })}
@@ -440,7 +440,7 @@ function App() {
               ›
             </button>
           </div>
-          <p className="reel-caption">{reelEntries[reelIndex].caption}</p>
+          <p key={reelIndex} className="reel-caption">{reelEntries[reelIndex].caption}</p>
         </div>
 
         <div className="end-scene" aria-hidden={endPhase === 'idle'}>
