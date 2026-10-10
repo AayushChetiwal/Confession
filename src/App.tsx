@@ -17,6 +17,7 @@ function App() {
   const [typedReveal, setTypedReveal] = useState('');
   const [showReel, setShowReel] = useState(false);
   const [reelIndex, setReelIndex] = useState(0);
+  const [expandedReelImage, setExpandedReelImage] = useState(false);
   const [endPhase, setEndPhase] = useState<'idle' | 'dots' | 'quote' | 'final'>(
     'idle'
   );
@@ -260,6 +261,15 @@ function App() {
     return () => window.clearTimeout(timeout);
   }, [endPhase]);
 
+  useEffect(() => {
+    if (!expandedReelImage) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setExpandedReelImage(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [expandedReelImage]);
+
   return (
     <main
       className={`love-page phase-${phase} ${isUnlocked ? 'is-unlocked' : ''} ${
@@ -422,7 +432,17 @@ function App() {
                 <img
                   className="reel-photo"
                   src={reelEntries[reelIndex].image}
-                  alt=""
+                  alt="Open image larger"
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Enlarge this image to read it"
+                  onClick={() => setExpandedReelImage(true)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setExpandedReelImage(true);
+                    }
+                  }}
                 />
               ) : (
                 <div className="reel-photo reel-photo-placeholder" />
@@ -445,6 +465,32 @@ function App() {
           </div>
           <p key={reelIndex} className="reel-caption">{reelEntries[reelIndex].caption}</p>
         </div>
+
+        {expandedReelImage && showReel && reelEntries[reelIndex].image && (
+          <div
+            className="reel-lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Enlarged reel image"
+            onClick={() => setExpandedReelImage(false)}
+          >
+            <button
+              type="button"
+              className="reel-lightbox-close"
+              aria-label="Close enlarged image"
+              onClick={() => setExpandedReelImage(false)}
+            >
+              ×
+            </button>
+            <img
+              className="reel-lightbox-image"
+              src={reelEntries[reelIndex].image}
+              alt="Enlarged image for reading"
+              onClick={(event) => event.stopPropagation()}
+            />
+            <p className="reel-lightbox-hint">Tap outside or press Esc to close</p>
+          </div>
+        )}
 
         <div className="end-scene" aria-hidden={endPhase === 'idle'}>
           <p className="end-dots-text" aria-hidden={endPhase !== 'dots'}>
