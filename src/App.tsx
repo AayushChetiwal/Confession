@@ -355,12 +355,12 @@ function App() {
 
         <div className="paper-stack" aria-hidden={!isDakiya}>
           {Array.from({ length: totalPapers }, (_, i) => {
-            const tilt = [-6, -2, 3, 7][i];
+            const tilt = [-6, -2, 3, 7][i % 4];
             const isFront = i === paperIndex;
             const distance = Math.abs(i - paperIndex);
-            const scatterX = [-260, 220, -180, 300][i];
-            const scatterY = [-160, 200, 240, -140][i];
-            const scatterRot = [-35, 28, -18, 40][i];
+            const scatterX = [-260, 220, -180, 300][i % 4];
+            const scatterY = [-160, 200, 240, -140][i % 4];
+            const scatterRot = [-35, 28, -18, 40][i % 4];
             const cardStyle = isScattering
               ? {
                   transform: `translate(${scatterX}px, ${scatterY}px) rotate(${scatterRot}deg)`,
