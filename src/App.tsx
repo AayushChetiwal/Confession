@@ -231,6 +231,9 @@ function App() {
   }, [showTypewriter]);
 
   const handleReelFinished = () => {
+    // Clear the intro line when the reel ends, before the ending sequence begins.
+    setShowTypewriter(false);
+    setTypedReveal('');
     setEndPhase('dots');
   };
 
