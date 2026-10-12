@@ -102,6 +102,7 @@ main[data-end-phase="final"] .reel-scene { opacity: 0; pointer-events: none; }
 .reel-arrow-next { left: 83%; transform: translate(-50%, -50%); }
 .reel-arrow:hover:not(:disabled) { transform: translate(-50%, -50%) scale(1.15); }
 .reel-arrow:disabled { opacity: .25; cursor: default; }
+.reel-arrow-mobile { display: none; }
 .reel-caption { animation: text-arrive .55s ease both; margin: 0; color: #4a2c17; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: .02em; text-align: center; }
 
 .end-scene { width: min(680px, 90vw); display: grid; place-items: center; text-align: center; opacity: 0; pointer-events: none; transition: opacity .6s ease; }
@@ -130,28 +131,30 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
 @keyframes blink { 50% { opacity: 0; } }
 
 @media (max-width: 620px) {
-  /* Mobile reel: show each original image in full, without cropping. */
+  /* Mobile reel: portrait layout with vertical navigation controls. */
   .reel-scene {
     width: min(560px, 94vw);
-    gap: 12px;
+    gap: 10px;
     padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
   }
   .film-band {
-    width: 100%;
+    width: min(88vw, 440px);
     aspect-ratio: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding-bottom: 48px;
+    justify-content: center;
+    gap: 8px;
+    padding-bottom: 0;
   }
   .film-band-art { display: none; }
   .reel-photo-frame {
     position: relative;
     inset: auto;
+    order: 2;
     width: 100%;
-    height: min(59svh, 540px);
-    min-height: 210px;
+    height: min(57svh, 500px);
+    min-height: 190px;
     overflow: hidden;
     border-radius: 8px;
     background: #130909;
@@ -163,18 +166,23 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
     top: auto;
     left: auto;
     transform: none;
+    display: grid;
+    place-items: center;
+    width: 54px;
     min-width: 54px;
-    min-height: 42px;
+    min-height: 38px;
     border: 1px solid rgba(233, 196, 106, .42);
     border-radius: 999px;
     color: #f0d999;
     background: rgba(25, 7, 7, .72);
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     line-height: 1;
     text-shadow: none;
   }
-  .reel-arrow-prev { position: absolute; left: 16%; bottom: 4px; }
-  .reel-arrow-next { position: absolute; left: auto; right: 16%; bottom: 4px; }
+  .reel-arrow-prev { order: 1; }
+  .reel-arrow-next { order: 3; }
+  .reel-arrow-desktop { display: none; }
+  .reel-arrow-mobile { display: inline; }
   .reel-arrow:hover:not(:disabled) { transform: scale(1.04); }
   .reel-caption {
     max-width: 92vw;
@@ -188,12 +196,7 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
   .dare-button { top: calc(100% + 46px); white-space: normal; }
   .dakiya-button { top: calc(100% + 98px); white-space: normal; font-size: 1.15rem; }
   .paper-nav { bottom: calc(env(safe-area-inset-bottom, 0px) + 68px); gap: 10px; }
-  .paper-nav button { padding: 9px 13px; font-size: .78rem; }
-  .more-button { bottom: calc(env(safe-area-inset-bottom, 0px) + 118px); max-width: 92vw; white-space: normal; font-size: 1.05rem; }
-  .replay-sequence-button { bottom: calc(env(safe-area-inset-bottom, 0px) + 8px); padding: 8px 12px; font-size: .74rem; }
 }
-
-
 /* Tap a reel image to open a large, readable lightbox. */
 .reel-photo { cursor: zoom-in; }
 .reel-photo:focus-visible { outline: 2px solid #e9c46a; outline-offset: 3px; }

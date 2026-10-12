@@ -444,7 +444,8 @@ function App() {
               disabled={reelIndex === 0}
               aria-label="Previous"
             >
-              ‹
+              <span className="reel-arrow-desktop">‹</span>
+              <span className="reel-arrow-mobile" aria-hidden="true">↑</span>
             </button>
             <div className="reel-photo-frame">
               {reelEntries[reelIndex].image ? (
@@ -479,7 +480,8 @@ function App() {
               }}
               aria-label="Next"
             >
-              ›
+              <span className="reel-arrow-desktop">›</span>
+              <span className="reel-arrow-mobile" aria-hidden="true">↓</span>
             </button>
           </div>
           <p key={reelIndex} className="reel-caption">{reelEntries[reelIndex].caption}</p>
