@@ -57,7 +57,7 @@ function App() {
     { image: '/images/reel/reel-14.png', caption: 'Another research reading of the cognitive effect of sharing negative emotions and how to talk about it.' },
   ];
   const revealMessage =
-    'Now here I show you, things I did about you, that you never knew...';
+    'These are moments I spent while yearning for you, from dawn till dusk..';
   const audioCtxRef = useRef<AudioContext | null>(null);
   const moreTimeoutRef = useRef<number | null>(null);
   const playerRef = useRef<{
@@ -522,7 +522,7 @@ function App() {
           </p>
 
           <p className="end-quote" aria-hidden={endPhase !== 'quote'}>
-            ABCD
+            Please forgive me. You were betrayed.
           </p>
 
           <div className="end-final" aria-hidden={endPhase !== 'final'}>
