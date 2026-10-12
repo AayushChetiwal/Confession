@@ -103,7 +103,7 @@ main[data-end-phase="final"] .reel-scene { opacity: 0; pointer-events: none; }
 .reel-arrow:hover:not(:disabled) { transform: translate(-50%, -50%) scale(1.15); }
 .reel-arrow:disabled { opacity: .25; cursor: default; }
 .reel-arrow-mobile { display: none; }
-.reel-caption { animation: text-arrive .55s ease both; margin: 0; color: #4a2c17; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: .02em; text-align: center; }
+.reel-caption { animation: text-arrive .55s ease both; margin: 0; color: #FFF8E7; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: .02em; text-align: center; }
 
 .end-scene { width: min(680px, 90vw); display: grid; place-items: center; text-align: center; opacity: 0; pointer-events: none; transition: opacity .6s ease; }
 main[data-end-phase="dots"] .end-scene,
