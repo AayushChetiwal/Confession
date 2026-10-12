@@ -44,17 +44,17 @@ function App() {
   const totalPapers = paperPages.length;
   const reelEntries = [
     { image: '/images/reel/reel-01.png', caption: 'ABCD' },
-    { image: '/images/reel/reel-02.png', caption: 'ABCD' },
+    { image: '/images/reel/reel-02.png', caption: 'You are "ykw". I physically trembled taking your name even in chat.' },
     { image: '/images/reel/reel-03.png', caption: 'ABCD' },
     { image: '/images/reel/reel-04.png', caption: 'ABCD' },
     { image: '/images/reel/reel-05.png', caption: 'ABCD' },
-    { image: '/images/reel/reel-06.png', caption: 'ABCD' },
+    { image: '/images/reel/reel-06.png', caption: 'I wanted to give you a gift before I "parted" ways with you, hence.' },
     { image: '/images/reel/reel-07.png', caption: 'ABCD' },
-    { image: '/images/reel/reel-08.png', caption: 'ABCD' },
+    { image: '/images/reel/reel-08.png', caption: 'A playlist I made two years ago with songs that reminded me of you.' },
     { image: '/images/reel/reel-09.png', caption: 'ABCD' },
-    { image: '/images/reel/reel-12.png', caption: 'ABCD' },
-    { image: '/images/reel/reel-13.png', caption: 'ABCD' },
-    { image: '/images/reel/reel-14.png', caption: 'ABCD' },
+    { image: '/images/reel/reel-12.png', caption: 'I sent myself a voice note everyday for 30 days talking about you and what is ahead of us until I confessed.' },
+    { image: '/images/reel/reel-13.png', caption: 'Reading research about the psychology of the menstrual cycle and how to behave.' },
+    { image: '/images/reel/reel-14.png', caption: 'Another research reading of the cognitive effect of sharing negative emotions and how to talk about it.' },
   ];
   const revealMessage =
     'Now here I show you, things I did about you, that you never knew...';
