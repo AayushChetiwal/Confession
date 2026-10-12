@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Mono:wght@400&family=Lalezar&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Mono:wght@400&family=Lalezar&family=Pacifico&family=Yatra+One&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -248,3 +248,10 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
   .reel-lightbox-hint { font-size: .78rem; }
 }
 
+
+
+/* Yatra One: only the two requested reveal messages */
+.more-button,
+.typewriter-text {
+  font-family: 'Yatra One', serif;
+}
