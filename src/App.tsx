@@ -456,10 +456,15 @@ function App() {
                   role="button"
                   tabIndex={0}
                   aria-label="Enlarge this image to read it"
-                  onClick={() => setExpandedReelImage(true)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    setExpandedReelImage(true);
+                  }}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter' || event.key === ' ') {
                       event.preventDefault();
+                      event.stopPropagation();
                       setExpandedReelImage(true);
                     }
                   }}
