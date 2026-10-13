@@ -467,6 +467,9 @@ function App() {
               ) : (
                 <div className="reel-photo reel-photo-placeholder" />
               )}
+              {reelEntries[reelIndex].image && (
+                <span className="reel-enlarge-hint" aria-hidden="true">Click to enlarge</span>
+              )}
             </div>
             <button
               type="button"
