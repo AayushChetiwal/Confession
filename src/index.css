@@ -258,3 +258,5 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
 .typewriter-text {
   font-family: 'Yatra One', serif;
 }
+
+.end-scene { position: relative; z-index: 300; }
