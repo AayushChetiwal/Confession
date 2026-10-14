@@ -260,3 +260,4 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
 }
 
 .end-scene { position: relative; z-index: 300; }
+.paper-stack { width: min(300px, 72vw, calc((100svh - 200px) * 0.5625)); margin-bottom: 170px; }
