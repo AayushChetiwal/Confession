@@ -43,8 +43,8 @@ function App() {
   ];
   const totalPapers = paperPages.length;
   const reelEntries = [
-    { image: '/images/reel/reel-01.png', caption: '' },
-    { image: '/images/reel/reel-02.png', caption: 'You are "ykw". I physically trembled taking your name even in chat.' },
+    { image: '/images/reel/reel-01.png', caption: 'You are "ykw". I physically trembled taking your name even in chat.' },
+    { image: '/images/reel/reel-02.png', caption: '' },
     { image: '/images/reel/reel-03.png', caption: '' },
     { image: '/images/reel/reel-04.png', caption: '' },
     { image: '/images/reel/reel-05.png', caption: '' },
@@ -57,7 +57,7 @@ function App() {
     { image: '/images/reel/reel-14.png', caption: 'Another research reading of the cognitive effect of sharing negative emotions and how to talk about it.' },
   ];
   const revealMessage =
-    'These are moments I spent while yearning for you, from dawn till dusk..';
+    'Behind the scenes of my love...';
   const audioCtxRef = useRef<AudioContext | null>(null);
   const moreTimeoutRef = useRef<number | null>(null);
   const playerRef = useRef<{
@@ -525,7 +525,7 @@ function App() {
           </p>
 
           <p className="end-quote" aria-hidden={endPhase !== 'quote'}>
-            Please forgive me. You were betrayed.
+            I feel ashamed Divya. Please forgive me. You were betrayed.
           </p>
 
           <div className="end-final" aria-hidden={endPhase !== 'final'}>
