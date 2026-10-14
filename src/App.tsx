@@ -57,7 +57,7 @@ function App() {
     { image: '/images/reel/reel-14.png', caption: 'Another research reading of the cognitive effect of sharing negative emotions and how to talk about it.' },
   ];
   const revealMessage =
-    'Behind the scenes of my love...';
+    'Behind the scenes of my love..';
   const audioCtxRef = useRef<AudioContext | null>(null);
   const moreTimeoutRef = useRef<number | null>(null);
   const playerRef = useRef<{
