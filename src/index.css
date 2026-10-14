@@ -69,7 +69,8 @@ main[data-end-phase="final"] .reel-scene { opacity: 0; pointer-events: none; }
 .is-dakiya .replay-sequence-button[aria-hidden="false"] { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
 .replay-sequence-button:hover { color: #fff; border-color: #f33887; }
 .replay-sequence-button:focus-visible { outline: 2px solid #f33887; outline-offset: 4px; }
-.paper-card-wrap { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .55s cubic-bezier(.16, 1, .3, 1), opacity .55s ease; }
+.paper-card-wrap { position: absolute; inset: 0; width: 100%; height: 100%; contain: layout paint; transition: transform .48s cubic-bezier(.16, 1, .3, 1), opacity .48s ease; }
+.paper-card-backing .paper-text { display: none; }
 .paper-card { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; box-shadow: 0 20px 44px rgba(0, 0, 0, .6); }
 .paper-text { animation: text-arrive .65s ease both; position: absolute; left: 12%; right: 12%; top: 12%; bottom: 13%; margin: 0; display: block; text-align: left; white-space: pre-wrap; overflow-y: auto; overflow-x: hidden; color: #4a2c17; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(.78rem, 2.9vw, 1rem); line-height: 1.35; letter-spacing: 0; padding-right: 2px; scrollbar-width: thin; }
 .paper-nav { position: fixed; z-index: 240; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 72px); transform: translateX(-50%); display: flex; justify-content: center; gap: 14px; width: max-content; max-width: 94vw; }
@@ -314,3 +315,10 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
 .end-final { padding: 26px 30px; }
 
 .replay-sequence-button { display: none !important; }
+
+/* Keep the paper stack smooth on phones without removing its layered look. */
+@media (max-width: 620px) {
+  .paper-card { box-shadow: 0 8px 18px rgba(0, 0, 0, .38); }
+  .paper-card-wrap { transition-duration: .4s; }
+  .paper-text { animation-duration: .4s; }
+}

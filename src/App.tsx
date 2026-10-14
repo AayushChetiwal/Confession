@@ -354,35 +354,36 @@ function App() {
         )}
 
         <div className="paper-stack" aria-hidden={!isDakiya}>
-          {Array.from({ length: totalPapers }, (_, i) => {
-            const tilt = [-6, -2, 3, 7][i % 4];
-            const isFront = i === paperIndex;
-            const distance = Math.abs(i - paperIndex);
-            const scatterX = [-260, 220, -180, 300][i % 4];
-            const scatterY = [-160, 200, 240, -140][i % 4];
-            const scatterRot = [-35, 28, -18, 40][i % 4];
+          {/* Three lightweight backing sheets plus one real, active page. */}
+          {Array.from({ length: 4 }, (_, layer) => {
+            const isFront = layer === 3;
+            const tilt = [-4, 3, -2, 0][layer];
+            const scatterX = [-180, 220, -260, 300][layer];
+            const scatterY = [180, -140, 240, -160][layer];
+            const scatterRot = [24, -18, 35, -32][layer];
             const cardStyle = isScattering
               ? {
                   transform: `translate(${scatterX}px, ${scatterY}px) rotate(${scatterRot}deg)`,
                   opacity: 0,
-                  zIndex: 100 - distance,
+                  zIndex: layer + 1,
                   transitionDuration: '.85s',
                 }
               : {
-                  transform: `rotate(${tilt}deg) translateY(${
-                    isFront ? -6 : distance * 3
-                  }px) scale(${isFront ? 1 : 0.97})`,
-                  zIndex: 100 - distance,
+                  transform: `rotate(${tilt}deg) translateY(${isFront ? -6 : (3 - layer) * 3}px) scale(${isFront ? 1 : 0.97})`,
+                  zIndex: layer + 1,
                   opacity: isFront ? 1 : 0.82,
                 };
             return (
-              <div key={i} className="paper-card-wrap" style={cardStyle}>
+              <div key={layer} className={`paper-card-wrap${isFront ? ' paper-card-front' : ' paper-card-backing'}`} style={cardStyle}>
                 <img
                   className="paper-card"
                   src="/images/letter-paper.jpg"
-                  alt="A handwritten letter page"
+                  alt={isFront ? 'A letter page' : ''}
+                  aria-hidden={!isFront}
                 />
-                <p key={paperIndex} className="paper-text">{paperPages[i]}</p>
+                {isFront && (
+                  <p key={paperIndex} className="paper-text">{paperPages[paperIndex]}</p>
+                )}
               </div>
             );
           })}
