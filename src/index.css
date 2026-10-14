@@ -312,3 +312,5 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
 .reel-caption { padding: 8px 18px; }
 .end-dots-text, .end-quote { padding: 12px 26px; }
 .end-final { padding: 26px 30px; }
+
+.replay-sequence-button { display: none !important; }
