@@ -304,3 +304,11 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
   .reel-arrow-prev { top: 28px; }
   .reel-arrow-next { top: auto; bottom: 28px; }
 }
+
+/* Readability: darker brown letter text; dark brown backing behind the other text */
+.paper-text { color: #2b1609; }
+.typewriter-text, .reel-caption, .end-dots-text, .end-quote, .end-final { background: rgba(43, 22, 9, .94); border-radius: 12px; box-shadow: 0 6px 22px rgba(0, 0, 0, .45); }
+.typewriter-text { width: 100%; padding: 14px 22px; }
+.reel-caption { padding: 8px 18px; }
+.end-dots-text, .end-quote { padding: 12px 26px; }
+.end-final { padding: 26px 30px; }
