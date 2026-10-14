@@ -391,8 +391,9 @@ function App() {
               type="button"
               onClick={() => setPaperIndex((i) => Math.max(0, i - 1))}
               disabled={paperIndex === 0}
+              aria-label="Previous page"
             >
-              Previous
+              ‹
             </button>
             <button
               type="button"
@@ -400,8 +401,9 @@ function App() {
                 setPaperIndex((i) => Math.min(totalPapers - 1, i + 1))
               }
               disabled={paperIndex === totalPapers - 1}
+              aria-label="Next page"
             >
-              Next
+              ›
             </button>
           </div>
           <button

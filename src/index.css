@@ -260,4 +260,9 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
 }
 
 .end-scene { position: relative; z-index: 300; }
-.paper-stack { width: min(300px, 72vw, calc((100svh - 200px) * 0.5625)); margin-bottom: 170px; }
+.paper-stack { width: min(300px, 72vw, calc((100svh - 200px) * 0.5625)); margin-bottom: 70px; }
+.paper-nav { position: static; transform: none; width: auto; max-width: none; display: block; }
+.paper-nav button { position: absolute; top: 50%; z-index: 240; display: grid; place-items: center; width: 40px; height: 40px; margin-top: -20px; padding: 0; border-radius: 50%; font-size: 1.7rem; line-height: 1; }
+.paper-nav button:first-child { left: max(-46px, calc(4px + 50% - 50vw)); }
+.paper-nav button:last-child { right: max(-46px, calc(4px + 50% - 50vw)); }
+.more-button { bottom: calc(env(safe-area-inset-bottom, 0px) + 72px); }
