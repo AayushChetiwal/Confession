@@ -266,3 +266,41 @@ main[data-end-phase="final"] .end-final { opacity: 1; pointer-events: auto; }
 .paper-nav button:first-child { left: max(-46px, calc(4px + 50% - 50vw)); }
 .paper-nav button:last-child { right: max(-46px, calc(4px + 50% - 50vw)); }
 .more-button { bottom: calc(env(safe-area-inset-bottom, 0px) + 72px); }
+
+/* Mobile reel: draw the film-reel art vertically behind the photo */
+@media (max-width: 620px) {
+  .film-band {
+    --reel-w: min(98vw, 440px);
+    --reel-h: calc(var(--reel-w) * 2.8136);
+    display: block;
+    position: relative;
+    width: var(--reel-w);
+    height: min(var(--reel-h), calc(100svh - 150px));
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+  }
+  .film-band-art {
+    display: block;
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    width: var(--reel-h);
+    height: var(--reel-w);
+    max-width: none;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .reel-photo-frame {
+    position: absolute;
+    inset: auto;
+    top: calc(50% - var(--reel-h) * 0.1565);
+    left: 17%;
+    width: 67.5%;
+    height: calc(var(--reel-h) * 0.313);
+    min-height: 0;
+    order: 0;
+  }
+  .reel-arrow { position: absolute; left: 0; right: 0; margin: 0 auto; }
+  .reel-arrow-prev { top: 28px; }
+  .reel-arrow-next { top: auto; bottom: 28px; }
+}
