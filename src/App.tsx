@@ -336,15 +336,6 @@ function App() {
                 ? 'Sure? I hope you are currently alone..'
                 : 'Dare..?'}
           </button>
-          <button
-            className="dakiya-button"
-            type="button"
-            onClick={() => setIsDakiya(true)}
-            aria-hidden={!isUnlocked}
-            tabIndex={isUnlocked ? 0 : -1}
-          >
-            Dakiya dak laya!
-          </button>
         </div>
 
         {isDakiya && isDared && !showTypewriter && !showReel && endPhase === 'idle' && (
