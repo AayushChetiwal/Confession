@@ -44,8 +44,8 @@ function App() {
   ];
   const totalPapers = paperPages.length;
   const reelEntries = [
-    { image: '/images/reel/reel-01.png', caption: 'You are "ykw". I physically trembled taking your name even in chat.' },
-    { image: '/images/reel/reel-02.png', caption: '' },
+    { image: '/images/reel/reel-01.png', caption: '' },
+    { image: '/images/reel/reel-02.png', caption: 'You are "ykw". I physically trembled taking your name even in chat.' },
     { image: '/images/reel/reel-03.png', caption: '' },
     { image: '/images/reel/reel-04.png', caption: '' },
     { image: '/images/reel/reel-05.png', caption: '' },
@@ -56,6 +56,7 @@ function App() {
     { image: '/images/reel/reel-12.png', caption: 'I sent myself a voice note everyday for 30 days talking about you and what is ahead of us until I confessed.' },
     { image: '/images/reel/reel-13.png', caption: 'Reading research about the psychology of the menstrual cycle and how to behave.' },
     { image: '/images/reel/reel-14.png', caption: 'Another research reading of the cognitive effect of sharing negative emotions and how to talk about it.' },
+    { image: '/images/reel/reel-15.png', caption: '' },
   ];
   const revealMessage =
     'Behind the scenes of my love..';
