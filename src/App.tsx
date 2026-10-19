@@ -342,7 +342,7 @@ function App() {
               ? 'Unlock what shackles me..?'
               : isDared
                 ? 'Sure? I hope you are currently alone..'
-                : 'Dare..?'}
+                : 'Open the envelope..?'}
           </button>
         </div>
 
