@@ -57,7 +57,7 @@ function App() {
     { image: '/images/reel/reel-12.png', caption: 'I sent myself a voice note everyday for 30 days talking about you and what is ahead of us until I confessed.' },
     { image: '/images/reel/reel-13.png', caption: 'Reading research about the psychology of the menstrual cycle and how to behave.' },
     { image: '/images/reel/reel-14.png', caption: 'Another research reading of the cognitive effect of sharing negative emotions and how to talk about it.' },
-    { image: '/images/reel/reel-15.png', caption: '' },
+    { image: '/images/reel/reel-15.PNG', caption: '' },
     { image: '/images/reel/reel-17.png', caption: 'A week before today. He does not know your name.' },
     { image: '/images/reel/reel-16.png', caption: '' },
   ];
