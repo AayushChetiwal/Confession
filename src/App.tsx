@@ -61,6 +61,7 @@ function App() {
     { image: '/images/reel/reel-15.PNG', caption: '' },
     { image: '/images/reel/reel-17.png', caption: 'A week before today. He does not know your name.' },
     { image: '/images/reel/reel-16.png', caption: '' },
+    { image: '/images/reel/reel-18.PNG', caption: 'I recorded everytime you cried for a year.' }
   ];
   const revealMessage =
     'Behind the scenes of my love..';
